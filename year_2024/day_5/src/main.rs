@@ -16,12 +16,10 @@ impl Ord for Page {
             }
         }
         if let Some(values) = ordering.get(&other.index) {
-            // println!("----- Inside{self:?} --- {other:?}");
             if values.contains(&self.index) {
                 return Ordering::Greater;
             }
         }
-        // println!("SERVERE ERROR: Is {self:?} --- {other:?}");
         self.index.cmp(&other.index) // Default. Not sure if this is smart.
     }
 }
@@ -43,7 +41,6 @@ fn main() {
     let input = fs::read_to_string("./input").unwrap();
     let mut sections = input.split("\n\n");
     let rules = sections.next().unwrap();
-    println!("Hello, world! {rules}");
     {
         let mut ordering = ITEM_ORDER.lock().unwrap();
         for line in rules.lines() {
@@ -53,7 +50,6 @@ fn main() {
                 ordering.entry(key).or_insert_with(Vec::new).push(value);
             }
         }
-        println!("Ordering: {ordering:?}");
     }
     let print_orders = sections.next().unwrap();
     let mut count_already_sorted = 0;
