@@ -71,7 +71,7 @@ fn part_one(input: &str) {
 
     // Horizontal
     for line in input.lines() {
-        for i in 0..(line.len() - 4) {
+        for i in 0..(line.len() - 3) {
             let win = &line[i..(i + 4)];
             if win == forward || win == backwards {
                 counter += 1;

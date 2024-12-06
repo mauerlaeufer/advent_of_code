@@ -40,7 +40,6 @@ fn part_two(input: &str) {
                         .map(|v| v.parse::<i32>().unwrap())
                         .product::<i32>()
                 } else {
-                    println!("blocked");
                 }
             }
         }
