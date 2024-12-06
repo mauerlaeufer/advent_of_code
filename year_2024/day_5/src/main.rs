@@ -56,12 +56,11 @@ fn main() {
     let mut count_freshly_sorted = 0;
     for line in print_orders.lines() {
         let mut v: Vec<Page> = line
-            .split(',') // Split the string by commas
-            .map(|s| s.trim()) // Trim any whitespace
-            .map(|s| s.parse().expect("Invalid number")) // Parse into usize
-            //.collect::<Vec<usize>>()
+            .split(',') 
+            .map(|s| s.trim()) 
+            .map(|s| s.parse().expect("Invalid number")) 
             .map(|num| Page { index: num })
-            .collect(); // Collect into a Vec
+            .collect(); 
         let sorted = v.is_sorted();
         if sorted {
             count_already_sorted += v.get(v.len() / 2).unwrap().index;
